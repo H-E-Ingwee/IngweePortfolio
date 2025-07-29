@@ -224,7 +224,6 @@
 }
 </script>
 
-
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -232,7 +231,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -249,105 +248,59 @@
 
 <body class="index-page">
 
-  <header id="header" class="header dark-background d-flex flex-column justify-content-center">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
+  <header id="header" class="header dark-background fixed-top d-flex align-items-center">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
 
-    <div class="header-container d-flex flex-column align-items-start">
-            <nav id="navmenu" class="navmenu">
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+        <h1 class="sitename">H.E_INGWEE</h1>
+      </a>
+
+      <nav id="navmenu" class="navbar">
         <ul>
-          <li><a href="#hero" class="active"><i class="bi bi-house-door navicon"></i>Home</a></li>
-          <li><a href="#about"><i class="bi bi-person-circle navicon"></i> About</a></li>
-          <li><a href="#resume"><i class="bi bi-file-earmark-person navicon"></i> Resume</a></li>
-          <li><a href="#portfolio"><i class="bi bi-grid-fill navicon"></i> Portfolio</a></li>
-          <li><a href="#services"><i class="bi bi-briefcase navicon"></i> Services</a></li>
-          <!-- Dropdown menu commented out as per original structure, can be uncommented if needed -->
-          <!--
-          <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          -->
-          <li><a href="#contact"><i class="bi bi-chat-dots navicon"></i> Contact</a></li>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <div class="social-links text-center">
-        <!-- Placeholder social links - update with Brian's actual links -->
+      <div class="social-links d-none d-lg-flex">
         <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
         <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
         <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
       </div>
 
-
     </div>
-
   </header>
 
   <main class="main">
 
-   <!-- Hero Section  -->
-    <section id="hero" class="hero section">
+   <!-- Hero Section - Updated with new layout and content -->
+    <section id="hero" class="hero section d-flex align-items-center justify-content-center">
+      <div class="container">
+        <div class="row align-items-center justify-content-center text-center text-lg-start">
 
-      <div class="background-elements">
-        <div class="bg-circle circle-1"></div>
-        <div class="bg-circle circle-2"></div>
-      </div>
-
-      <div class="hero-content">
-
-        <div class="container">
-          <div class="row align-items-center">
-
-            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-              <div class="hero-text">
-                <h1>Ingweplex<span class="accent-text">Portfolio</span></h1>
-                <h2>Brian Ingwee (H.E_INGWEE)</h2>
-                <p class="lead">I'm a <span class="typed" data-typed-items="Computer Scientist, AI & Robotics Enthusiast, Graphic Designer,Brand Strategist, Writer, Film Producer, Visionary Leader"></span></p>
-                <p class="description">I carry a unique blend of technological skills, creative artistry, and visionary leadership. As a fourth-year Computer Science student, I am passionate about leveraging technology, creativity, and Leadership to uplift Kenya and Africa globally.</p>
-
-                <div class="hero-actions">
-                  <a href="#portfolio" class="btn btn-primary">View My Work</a>
-                  <a href="#contact" class="btn btn-outline">Get In Touch</a>
-                </div>
-
-                <div class="social-links">
-                  <!-- Placeholder social links - update with Brian's actual links -->
-                  <a href="#"><i class="bi bi-twitter-x"></i></a>
-                  <a href="#"><i class="bi bi-instagram"></i></a>
-                  <a href="#"><i class="bi bi-github"></i></a>
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
+          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start" data-aos="fade-right" data-aos-delay="100">
+            <h1 class="hero-title">Brian Ingwee</h1>
+            <h2 class="hero-subtitle">H.E_INGWEE Portfolio</h2>
+            <p class="lead hero-typed-text">I'm a <span class="typed" data-typed-items="Computer Scientist, AI & Robotics Enthusiast, Graphic Designer, Brand Strategist, Writer, Film Producer, Visionary Leader"></span></p>
+            <p class="description hero-description">I carry a unique blend of technological skills, creative artistry, and visionary leadership. As a fourth-year Computer Science student, I am passionate about leveraging technology, creativity, and Leadership to uplift Kenya and Africa globally.</p>
+            <div class="hero-actions mt-4">
+              <a href="#portfolio" class="btn btn-primary">View My Work</a>
+              <a href="#contact" class="btn btn-outline">Get In Touch</a>
             </div>
-
-            <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-              <div class="hero-visual">
-                <div class="profile-container">
-                  <div class="profile-background"></div>
-                  <img src="assets/img/profile/Ingwee.JPG" alt="Brian Ingwee Profile" class="profile-image">
-                </div>
-              </div>
-            </div>
-
           </div>
+
+          <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
+            <img src="assets/img/profile/Ingwee.JPG" class="img-fluid animated" alt="Brian Ingwee Profile">
+          </div>
+
         </div>
       </div>
-
     </section><!-- /Hero Section -->
 
     <!-- About Section -->
@@ -481,22 +434,6 @@
                 </div>
                 <span data-purecounter-start="0" data-purecounter-end="290" data-purecounter-duration="1" class="purecounter"></span>
                 <p>Projects</p>
-              </div><!-- End Stats Item -->
-<!--
-              <div class="stats-item" data-aos="zoom-in" data-aos-delay="250">
-                <div class="icon-wrapper">
-                  <i class="bi bi-headset"></i>
-                </div>
-                <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Hours Of Support</p>
-              </div><!-- End Stats Item -->
-<!--
-              <div class="stats-item" data-aos="zoom-in" data-aos-delay="300">
-                <div class="icon-wrapper">
-                  <i class="bi bi-people"></i>
-                </div>
-                <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Hard Workers</p>
               </div><!-- End Stats Item -->
             </div>
           </div>
@@ -806,22 +743,6 @@
                 </ul>
               </div>
             </div>
-             <!-- Certifications section removed as no specific certifications were provided -->
-            <!--
-            <div class="resume-section" data-aos="fade-up" data-aos-delay="200">
-              <h3><i class="bi bi-award me-2"></i>Certifications</h3>
-
-              <div class="resume-item">
-                <h4>AWS Certified Solutions Architect - Professional</h4>
-                <h5>2023</h5>
-              </div>
-
-              <div class="resume-item">
-                <h4>Google Cloud Professional Architect</h4>
-                <h5>2022</h5>
-              </div>
-            </div>
-            -->
           </div>
         </div>
 
@@ -862,13 +783,13 @@
                 <!-- Example Portfolio Item: Graphic Design -->
                 <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-design">
                   <div class="portfolio-wrap">
-                    <img src="https://placehold.co/600x400/232323/ffffff?text=Brand+Identity+Design" class="img-fluid" alt="Brand Identity Design" loading="lazy">
+                    <img src="https://placehold.co/600x400/0F1D26/D9910B?text=Brand+Identity+Design" class="img-fluid" alt="Brand Identity Design" loading="lazy">
                     <div class="portfolio-info">
                       <div class="content">
                         <span class="category">Graphic Design</span>
                         <h4>Brand Identity Project</h4>
                         <div class="portfolio-links">
-                          <a href="https://placehold.co/600x400/232323/ffffff?text=Brand+Identity+Design" class="glightbox" title="Brand Identity Design"><i class="bi bi-plus-lg"></i></a>
+                          <a href="https://placehold.co/600x400/0F1D26/D9910B?text=Brand+Identity+Design" class="glightbox" title="Brand Identity Project"><i class="bi bi-plus-lg"></i></a>
                           <a href="portfolio-details.html" title="More Details"><i class="bi bi-arrow-right"></i></a>
                         </div>
                       </div>
@@ -879,13 +800,13 @@
                 <!-- Example Portfolio Item: Film & Writing -->
                 <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-film">
                   <div class="portfolio-wrap">
-                    <img src="https://placehold.co/600x400/232323/ffffff?text=Short+Film+Production" class="img-fluid" alt="Short Film Production" loading="lazy">
+                    <img src="https://placehold.co/600x400/0F1D26/D9910B?text=Short+Film+Production" class="img-fluid" alt="Short Film Production" loading="lazy">
                     <div class="portfolio-info">
                       <div class="content">
                         <span class="category">Film & Writing</span>
-                        <h4>"Gems In The Raff" Short Film</h4>
+                        <h4>"The Catalyst" Short Film</h4>
                         <div class="portfolio-links">
-                          <a href="https://placehold.co/600x400/232323/ffffff?text=Short+Film+Production" class="glightbox" title="Gems In The Raff Short Film"><i class="bi bi-plus-lg"></i></a>
+                          <a href="https://placehold.co/600x400/0F1D26/D9910B?text=Short+Film+Production" class="glightbox" title="The Catalyst Short Film"><i class="bi bi-plus-lg"></i></a>
                           <a href="portfolio-details-film-writing.html" title="More Details"><i class="bi bi-arrow-right"></i></a>
                         </div>
                       </div>
@@ -896,13 +817,13 @@
                 <!-- Example Portfolio Item: Leadership Initiatives -->
                 <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-leadership">
                   <div class="portfolio-wrap">
-                    <img src="https://placehold.co/600x400/232323/ffffff?text=VOCI+Initiative" class="img-fluid" alt="VOCI Initiative" loading="lazy">
+                    <img src="https://placehold.co/600x400/0F1D26/D9910B?text=VOCI+Initiative" class="img-fluid" alt="VOCI Initiative" loading="lazy">
                     <div class="portfolio-info">
                       <div class="content">
                         <span class="category">Leadership Initiatives</span>
                         <h4>VOCI Training Program</h4>
                         <div class="portfolio-links">
-                          <a href="https://placehold.co/600x400/232323/ffffff?text=VOCI+Initiative" class="glightbox" title="VOCI Training Program"><i class="bi bi-plus-lg"></i></a>
+                          <a href="https://placehold.co/600x400/0F1D26/D9910B?text=VOCI+Initiative" class="glightbox" title="VOCI Training Program"><i class="bi bi-plus-lg"></i></a>
                           <a href="portfolio-details-leadership.html" title="More Details"><i class="bi bi-arrow-right"></i></a>
                         </div>
                       </div>
@@ -913,13 +834,13 @@
                 <!-- Example Portfolio Item: Technology & AI -->
                 <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-tech">
                   <div class="portfolio-wrap">
-                    <img src="https://placehold.co/600x400/232323/ffffff?text=AI+Concept+Project" class="img-fluid" alt="AI Concept Project" loading="lazy">
+                    <img src="https://placehold.co/600x400/0F1D26/D9910B?text=AI+Concept+Project" class="img-fluid" alt="AI Concept Project" loading="lazy">
                     <div class="portfolio-info">
                       <div class="content">
                         <span class="category">Technology & AI</span>
                         <h4>AI in Healthcare Concept</h4>
                         <div class="portfolio-links">
-                          <a href="https://placehold.co/600x400/232323/ffffff?text=AI+Concept+Project" class="glightbox" title="AI in Healthcare Concept"><i class="bi bi-plus-lg"></i></a>
+                          <a href="https://placehold.co/600x400/0F1D26/D9910B?text=AI+Concept+Project" class="glightbox" title="AI in Healthcare Concept"><i class="bi bi-plus-lg"></i></a>
                           <a href="portfolio-details-tech-ai.html" title="More Details"><i class="bi bi-arrow-right"></i></a>
                         </div>
                       </div>
@@ -984,7 +905,7 @@
                 <i class="bi bi-arrow-up-right"></i>
               </a>
               <h3>
-                <a href="s">
+                <a href="service-details.html">
                   Graphic Design &amp; Brand Strategies</span>
                 </a>
               </h3>
