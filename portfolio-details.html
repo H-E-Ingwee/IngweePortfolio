@@ -226,39 +226,49 @@
 <body>
   <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center position-relative">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">H.E_INGWEE</h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
+    <div class="header-container d-flex flex-column align-items-start">
+            <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html#hero" class="">Home</a></li>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#resume">Resume</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li class="dropdown"><a href="#"><span>Portfolio</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li><a href="#hero" class="active"><i class="bi bi-house-door navicon"></i>Home</a></li>
+          <li><a href="#about"><i class="bi bi-person-circle navicon"></i> About</a></li>
+          <li><a href="#resume"><i class="bi bi-file-earmark-person navicon"></i> Resume</a></li>
+          <li><a href="#portfolio"><i class="bi bi-grid-fill navicon"></i> Portfolio</a></li>
+          <li><a href="#services"><i class="bi bi-briefcase navicon"></i> Services</a></li>
+          <!-- Dropdown menu commented out as per original structure, can be uncommented if needed -->
+          <!--
+          <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="#">Graphic Design</a></li>
-              <li class="dropdown"><a href="#"><span>Website</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <li><a href="#">Dropdown 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
-                  <li><a href="#">Birika Springs</a></li>
-                  <li><a href="#">Jeslights</a></li>
-                  <li><a href="#">VOCI</a></li>
-                  <li><a href="#">Nurulife</a></li>
+                  <li><a href="#">Deep Dropdown 1</a></li>
+                  <li><a href="#">Deep Dropdown 2</a></li>
+                  <li><a href="#">Deep Dropdown 3</a></li>
+                  <li><a href="#">Deep Dropdown 4</a></li>
+                  <li><a href="#">Deep Dropdown 5</a></li>
                 </ul>
               </li>
+              <li><a href="#">Dropdown 2</a></li>
+              <li><a href="#">Dropdown 3</a></li>
+              <li><a href="#">Dropdown 4</a></li>
             </ul>
           </li>
-          <li><a href="index.html#contact">Contact</a></li>
+          -->
+          <li><a href="#contact"><i class="bi bi-chat-dots navicon"></i> Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
+      <div class="social-links text-center">
+        <!-- Placeholder social links - update with Brian's actual links -->
+        <a href="https://x.com/H_E_Ingwee" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/h.e_ingwee/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+
     </div>
+
   </header>
   <!-- End Header -->
 
@@ -274,7 +284,7 @@
         </div>
 
         <!-- Graphic Design Section -->
-        <h3 style="text-align: center; margin: 40px 0; color: var(--heading-color);">Graphic Design</h3>
+        <h1 style="text-align: center; margin: 40px 0; color: var(--heading-color);">Graphic Design</h1>
         <div class="gallery-grid" id="graphic-design-gallery">
           <!-- Flyers -->
           <div class="gallery-item" data-category="flyers">
@@ -434,7 +444,7 @@
             </div>
           </div>
           <div class="gallery-item" data-category="guidelines">
-            <img src="assets/img/portfolio/graphic-design/logos/logo12.png" alt="Brand Guidelines Document 2">
+            <img src="assets/img/portfolio/graphic-design/logos/logo.pn" alt="Brand Guidelines Document 2">
             <div class="overlay">
               <h4>Brand Guidelines</h4>
               <p>Project: Sample Document 2</p>
