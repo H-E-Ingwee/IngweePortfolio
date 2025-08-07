@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Portfolio Details - H.E_INGWEE</title>
-  <meta name="description" content="Detailed view of a project from H.E_INGWEE's portfolio, showcasing skills in digital creation, design, and innovative solutions.">
-  <meta name="keywords" content="Brian Ingwee, H.E_INGWEE, Portfolio, Project Details, Computer Science, AI, Robotics, Graphic Design, Digital Marketing, Writer, Film Producer, Leadership, Kenya">
+  <title>Portfolio Gallery - H.E_INGWEE</title>
+  <meta name="description" content="A detailed showcase of H.E_INGWEE's graphic design, branding, brand strategy, and web development projects.">
+  <meta name="keywords" content="Brian Ingwee, H.E_INGWEE, Graphic Design, Branding, Logos, Flyers, Posters, Brand Strategy, Web Development, Portfolio">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -15,8 +15,9 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -27,186 +28,524 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <style>
+    /*
+      Custom styling for the portfolio gallery that is consistent with your main.css
+    */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 1/1;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: var(--contrast-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .overlay h4 {
+      font-size: 20px;
+      margin-bottom: 5px;
+      color: var(--heading-color);
+    }
+
+    .overlay p {
+      font-size: 14px;
+      color: var(--default-color);
+      margin: 0;
+    }
+
+    /* Modal Styling for Zoom/Gallery */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    
+    .modal .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .modal .prev, .modal .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    .modal .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .modal .prev {
+      left: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* Website Preview Styling */
+    .website-card {
+      background-color: var(--surface-color);
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .website-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .website-card iframe {
+      width: 100%;
+      height: 350px;
+      border: 1px solid var(--accent-color);
+      border-bottom: none;
+      pointer-events: none; /* Prevents interaction with the iframe */
+    }
+
+    .website-card .card-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .website-card h4 {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .website-card .visit-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: var(--accent-color);
+      color: var(--contrast-color);
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .website-card .visit-btn:hover {
+      background-color: color-mix(in srgb, var(--accent-color), transparent 25%);
+    }
+  </style>
 </head>
 
-<body class="portfolio-details-page">
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-  <header id="header" class="header dark-background d-flex flex-column justify-content-center">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">H.E_INGWEE</h1>
+      </a>
 
-    <div class="header-container d-flex flex-column align-items-start">
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
-          <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
-          <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-          <li><a href="index.html#portfolio" class="active"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-          <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-          <!-- Dropdown menu commented out as per index.html -->
-          <!--
-          <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li><a href="index.html#hero" class="">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#resume">Resume</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li class="dropdown"><a href="#"><span>Portfolio</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <li><a href="#">Graphic Design</a></li>
+              <li class="dropdown"><a href="#"><span>Website</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
+                  <li><a href="#">Birika Springs</a></li>
+                  <li><a href="#">Jeslights</a></li>
+                  <li><a href="#">VOCI</a></li>
+                  <li><a href="#">Nurulife</a></li>
                 </ul>
               </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
             </ul>
           </li>
-          -->
-          <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
         </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <div class="social-links text-center">
-        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-      </div>
-
     </div>
-
   </header>
+  <!-- End Header -->
 
-  <main class="main">
+  <main id="main">
 
-    <!-- Page Title -->
-    <div class="page-title dark-background">
-      <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0">Project Details</h1>
-        <nav class="breadcrumbs">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Project Details</li>
-          </ol>
-        </nav>
-      </div>
-    </div><!-- End Page Title -->
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio-details" class="portfolio-details section-bg">
+      <div class="container">
 
-    <!-- Portfolio Details Section -->
-    <section id="portfolio-details" class="portfolio-details section">
+        <div class="section-title">
+          <h2>Portfolio</h2>
+          <p>A showcase of my recent works</p>
+        </div>
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper init-swiper">
-
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 5000
-                  },
-                  "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  }
-                }
-              </script>
-
-              <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="https://placehold.co/800x500/0F1D26/D9910B?text=Brand+Identity+Project+1" alt="Brand Identity Project Image 1" class="img-fluid" loading="lazy">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="https://placehold.co/800x500/0F1D26/D9910B?text=Brand+Identity+Project+2" alt="Brand Identity Project Image 2" class="img-fluid" loading="lazy">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="https://placehold.co/800x500/0F1D26/D9910B?text=Brand+Identity+Project+3" alt="Brand Identity Project Image 3" class="img-fluid" loading="lazy">
-                </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
+        <!-- Graphic Design Section -->
+        <h3 style="text-align: center; margin: 40px 0; color: var(--heading-color);">Graphic Design</h3>
+        <div class="gallery-grid" id="graphic-design-gallery">
+          <!-- Flyers -->
+          <div class="gallery-item" data-category="flyers">
+            <img src="assets/img/portfolio/graphic-design/flyers/flyer1.png" alt="Flyer 1">
+            <div class="overlay">
+              <h4>Flyer Design</h4>
+              <p>Project: Sample Flyer 1</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="flyers">
+            <img src="assets/img/portfolio/graphic-design/flyers/flyer2.png" alt="Flyer 2">
+            <div class="overlay">
+              <h4>Flyer Design</h4>
+              <p>Project: Sample Flyer 2</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="flyers">
+            <img src="assets/img/portfolio/graphic-design/flyers/flyer3.png" alt="Flyer 3">
+            <div class="overlay">
+              <h4>Flyer Design</h4>
+              <p>Project: Sample Flyer 3</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="flyers">
+            <img src="assets/img/portfolio/graphic-design/flyers/flyer4.png" alt="Flyer 4">
+            <div class="overlay">
+              <h4>Flyer Design</h4>
+              <p>Project: Sample Flyer 4</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="flyers">
+            <img src="assets/img/portfolio/graphic-design/flyers/flyer5.png" alt="Flyer 5">
+            <div class="overlay">
+              <h4>Flyer Design</h4>
+              <p>Project: Sample Flyer 5</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="flyers">
+            <img src="assets/img/portfolio/graphic-design/flyers/flyer6.png" alt="Flyer 6">
+            <div class="overlay">
+              <h4>Flyer Design</h4>
+              <p>Project: Sample Flyer 6</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="flyers">
+            <img src="assets/img/portfolio/graphic-design/flyers/flyer7.png" alt="Flyer 7">
+            <div class="overlay">
+              <h4>Flyer Design</h4>
+              <p>Project: Sample Flyer 7</p>
             </div>
           </div>
 
-          <div class="col-lg-4">
-            <div class="portfolio-info" data-aos="fade-left" data-aos-delay="200">
-              <h3>Brand Identity Project: Ingweplex</h3>
-              <ul>
-                <li><strong>Category</strong>: Graphic Design & Branding</li>
-                <li><strong>Client</strong>: Internal / Ingweplex</li>
-                <li><strong>Project date</strong>: August, 2024</li>
-                <li><strong>Project URL</strong>: <a href="https://ingweplex.vercel.app/" target="_blank">ingweplex.vercel.app</a></li>
-              </ul>
+          <!-- Posters -->
+          <div class="gallery-item" data-category="posters">
+            <img src="assets/img/portfolio/graphic-design/posters/poster1.png" alt="Poster 1">
+            <div class="overlay">
+              <h4>Poster Design</h4>
+              <p>Project: Sample Poster 1</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="posters">
+            <img src="assets/img/portfolio/graphic-design/posters/poster2.jpg" alt="Poster 2">
+            <div class="overlay">
+              <h4>Poster Design</h4>
+              <p>Project: Sample Poster 2</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="posters">
+            <img src="assets/img/portfolio/graphic-design/posters/poster3.png" alt="Poster 3">
+            <div class="overlay">
+              <h4>Poster Design</h4>
+              <p>Project: Sample Poster 3</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="posters">
+            <img src="assets/img/portfolio/graphic-design/posters/poster4.png" alt="Poster 4">
+            <div class="overlay">
+              <h4>Poster Design</h4>
+              <p>Project: Sample Poster 4</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="posters">
+            <img src="assets/img/portfolio/graphic-design/posters/poster5.jpg" alt="Poster 5">
+            <div class="overlay">
+              <h4>Poster Design</h4>
+              <p>Project: Sample Poster 5</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="posters">
+            <img src="assets/img/portfolio/graphic-design/posters/poster6.png" alt="Poster 6">
+            <div class="overlay">
+              <h4>Poster Design</h4>
+              <p>Project: Sample Poster 6</p>
             </div>
           </div>
 
-          <div class="col-lg-12">
-            <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-              <h2>Project Overview: Crafting a Distinct Identity</h2>
-              <p>
-                This project involved the comprehensive development of the brand identity for Ingweplex Designs Agency and Ingweplex Business and Branding Consultancy. The goal was to create a cohesive and impactful visual and strategic presence that resonates with clients and reflects the agency's commitment to innovation and success.
-              </p>
-              <p>
-                The process included extensive research into market trends and client needs, leading to the selection of a unique color palette and typography (Montserrat) that embodies professionalism, creativity, and trust. The design elements, including the logo and visual assets, were meticulously crafted to convey the core values of "Empowering Brands, Inspiring Success."
-              </p>
+          <!-- Logos -->
+          <div class="gallery-item" data-category="logos">
+            <img src="assets/img/portfolio/graphic-design/logos/logo1.png" alt="Logo 1">
+            <div class="overlay">
+              <h4>Logo Design</h4>
+              <p>Project: Sample Logo 1</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="logos">
+            <img src="assets/img/portfolio/graphic-design/logos/logo2.png" alt="Logo 2">
+            <div class="overlay">
+              <h4>Logo Design</h4>
+              <p>Project: Sample Logo 2</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="logos">
+            <img src="assets/img/portfolio/graphic-design/logos/logo3.png" alt="Logo 3">
+            <div class="overlay">
+              <h4>Logo Design</h4>
+              <p>Project: Sample Logo 3</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="logos">
+            <img src="assets/img/portfolio/graphic-design/logos/logo4.png" alt="Logo 4">
+            <div class="overlay">
+              <h4>Logo Design</h4>
+              <p>Project: Sample Logo 4</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="logos">
+            <img src="assets/img/portfolio/graphic-design/logos/logo5.png" alt="Logo 5">
+            <div class="overlay">
+              <h4>Logo Design</h4>
+              <p>Project: Sample Logo 5</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="logos">
+            <img src="assets/img/portfolio/graphic-design/logos/logo6.png" alt="Logo 6">
+            <div class="overlay">
+              <h4>Logo Design</h4>
+              <p>Project: Sample Logo 6</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="logos">
+            <img src="assets/img/portfolio/graphic-design/logos/logo7.png" alt="Logo 7">
+            <div class="overlay">
+              <h4>Logo Design</h4>
+              <p>Project: Sample Logo 7</p>
+            </div>
+          </div>
+        </div>
 
-              <div class="features mt-4">
-                <h3>Key Features</h3>
-                <div class="row gy-3">
-                  <div class="col-md-6">
-                    <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
-                      <i class="bi bi-check-circle-fill"></i>
-                      <h4>Cohesive Visual System</h4>
-                      <p>Development of a unified visual language across all brand touchpoints, from logo to marketing materials.</p>
-                    </div>
-                  </div>
+        <!-- Brand Guidelines Section -->
+        <h3 style="text-align: center; margin: 40px 0; color: var(--heading-color);">Brand Guidelines</h3>
+        <div class="gallery-grid" id="brand-guidelines-gallery">
+          <div class="gallery-item" data-category="guidelines">
+            <img src="assets/img/portfolio/graphic-design/logos/logo7.png" alt="Brand Guidelines Document 1">
+            <div class="overlay">
+              <h4>Brand Guidelines</h4>
+              <p>Project: Sample Document 1</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="guidelines">
+            <img src="assets/img/portfolio/graphic-design/logos/logo12.png" alt="Brand Guidelines Document 2">
+            <div class="overlay">
+              <h4>Brand Guidelines</h4>
+              <p>Project: Sample Document 2</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="guidelines">
+            <img src="assets/img/portfolio/graphic-design/logos/logo11.png" alt="Brand Guidelines Document 3">
+            <div class="overlay">
+              <h4>Brand Guidelines</h4>
+              <p>Project: Sample Document 3</p>
+            </div>
+          </div>
+        </div>
 
-                  <div class="col-md-6">
-                    <div class="feature-item" data-aos="fade-up" data-aos-delay="500">
-                      <i class="bi bi-shield-check"></i>
-                      <h4>Strategic Messaging</h4>
-                      <p>Creation of clear, impactful messaging that communicates Ingweplex's value proposition and mission.</p>
-                    </div>
-                  </div>
+        <!-- Brand Strategy Section -->
+        <h3 style="text-align: center; margin: 40px 0; color: var(--heading-color);">Brand Strategy</h3>
+        <div class="gallery-grid" id="brand-strategy-gallery">
+          <div class="gallery-item" data-category="strategy">
+            <img src="assets/img/portfolio/graphic-design/logos/13.png" alt="ASFEC Brand Strategy">
+            <div class="overlay">
+              <h4>ASFEC Brand Strategy</h4>
+              <p>A Smile For Every Change</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="strategy">
+            <img src="assets/img/portfolio/graphic-design/logos/logo1.png" alt="Grub n Snuck Brand Strategy">
+            <div class="overlay">
+              <h4>Grub n Snuck Strategy</h4>
+              <p>Brand and Marketing</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="strategy">
+            <img src="assets/img/portfolio/graphic-design/logos/logo2.png" alt="Ingweplex Brand Strategy">
+            <div class="overlay">
+              <h4>Ingweplex Strategy</h4>
+              <p>Branding and Consultancy</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="strategy">
+            <img src="assets/img/portfolio/graphic-design/logos/logo2.png" alt="VOCI Brand Strategy">
+            <div class="overlay">
+              <h4>VOCI Brand Strategy</h4>
+              <p>Voice of Change Initiative</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="strategy">
+            <img src="assets/img/portfolio/graphic-design/logos/logo6.png" alt="NURULIFE Brand Strategy">
+            <div class="overlay">
+              <h4>NURULIFE Brand Strategy</h4>
+              <p>Marketing and Production</p>
+            </div>
+          </div>
+        </div>
 
-                  <div class="col-md-6">
-                    <div class="feature-item" data-aos="fade-up" data-aos-delay="600">
-                      <i class="bi bi-graph-up"></i>
-                      <h4>Scalable Design Elements</h4>
-                      <p>Ensuring design assets are versatile and adaptable for various platforms and future growth.</p>
-                    </div>
-                  </div>
 
-                  <div class="col-md-6">
-                    <div class="feature-item" data-aos="fade-up" data-aos-delay="700">
-                      <i class="bi bi-gear"></i>
-                      <h4>Brand Guidelines Document</h4>
-                      <p>A comprehensive guide for consistent brand application across all internal and external communications.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <!-- Website Previews Section -->
+        <h3 style="text-align: center; margin: 40px 0; color: var(--heading-color);">Website Previews</h3>
+        <div class="gallery-grid" id="website-previews">
+          <!-- VOCI Website -->
+          <div class="website-card">
+            <iframe src="https://vociglobal.vercel.app/" title="VOCI Website Preview"></iframe>
+            <div class="card-content">
+              <h4>VOCI Website</h4>
+              <a href="https://vociglobal.vercel.app/" target="_blank" class="visit-btn">Visit Site</a>
             </div>
           </div>
 
+          <!-- Nurulife Website -->
+          <div class="website-card">
+            <iframe src="https://Nurulife.vercel.app/" title="Nurulife Website Preview"></iframe>
+            <div class="card-content">
+              <h4>Nurulife Website</h4>
+              <a href="https://Nurulife.vercel.app/" target="_blank" class="visit-btn">Visit Site</a>
+            </div>
+          </div>
+          
+          <!-- Jeslights Website -->
+          <div class="website-card">
+            <iframe src="https://Jeslights.vercel.app/" title="Jeslights Website Preview"></iframe>
+            <div class="card-content">
+              <h4>Jeslights Website</h4>
+              <a href="https://Jeslights.vercel.app/" target="_blank" class="visit-btn">Visit Site</a>
+            </div>
+          </div>
+
+          <!-- Birika Springs Website -->
+          <div class="website-card">
+            <iframe src="https://Birikasprings.vercel.app/" title="Birika Springs Website Preview"></iframe>
+            <div class="card-content">
+              <h4>Birika Springs Website</h4>
+              <a href="https://Birikasprings.vercel.app/" target="_blank" class="visit-btn">Visit Site</a>
+            </div>
+          </div>
         </div>
 
       </div>
+    </section><!-- End Portfolio Section -->
 
-    </section><!-- /Portfolio Details Section -->
+    <!-- The Modal/Lightbox -->
+    <div id="image-modal" class="modal">
+      <span class="close">&times;</span>
+      <div class="modal-content">
+        <img id="modal-image" src="" alt="">
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+      </div>
+    </div>
 
-  </main>
+  </main><!-- End #main -->
 
+  <!-- ======= Footer ======= -->
   <footer id="footer" class="footer position-relative">
 
     <div class="container">
@@ -214,17 +553,17 @@
         <p>© <span>Copyright</span> <strong class="px-1 sitename">H.E_INGWEE</strong> <span>2025 All Rights Reserved</span></p>
       </div>
       <div class="credits">
-        Designed by <a href="https://ingweplex.vercel.app/" target="_blank">Ingweplex</a>
+    
+Designed by <a href="https://ingweplex.vercel.app/" target="_blank">Ingweplex</a>
       </div>
     </div>
 
   </footer>
+  <!-- End Footer -->
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -235,12 +574,63 @@
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <script>
+    // Self-contained JavaScript for the gallery and modal functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      const modal = document.getElementById('image-modal');
+      const modalImage = document.getElementById('modal-image');
+      const closeBtn = document.querySelector('.modal .close');
+      const prevBtn = document.querySelector('.modal .prev');
+      const nextBtn = document.querySelector('.modal .next');
+      let currentGalleryItems = [];
+      let currentIndex = 0;
+
+      // Event listener for opening the modal
+      galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const category = item.getAttribute('data-category');
+          // Find all items in the same category to create a gallery
+          currentGalleryItems = document.querySelectorAll(`.gallery-item[data-category="${category}"]`);
+          currentIndex = Array.from(currentGalleryItems).indexOf(item);
+          
+          modalImage.src = item.querySelector('img').src;
+          modal.classList.add('open');
+        });
+      });
+
+      // Event listener for closing the modal
+      closeBtn.addEventListener('click', () => {
+        modal.classList.remove('open');
+      });
+
+      // Event listener for navigating to the next image
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % currentGalleryItems.length;
+        modalImage.src = currentGalleryItems[currentIndex].querySelector('img').src;
+      });
+
+      // Event listener for navigating to the previous image
+      prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + currentGalleryItems.length) % currentGalleryItems.length;
+        modalImage.src = currentGalleryItems[currentIndex].querySelector('img').src;
+      });
+
+      // Close modal on outside click
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('open');
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

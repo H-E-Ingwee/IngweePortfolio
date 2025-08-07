@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Portfolio Gallery - H.E_INGWEE</title>
+  <meta name="description" content="A detailed showcase of H.E_INGWEE's graphic design, branding, brand strategy, and web development projects.">
+  <meta name="keywords" content="Brian Ingwee, H.E_INGWEE, Graphic Design, Branding, Logos, Flyers, Posters, Brand Strategy, Web Development, Portfolio">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    /*
+      Global Colors and Fonts from your main.css file
+    */
+    :root {
+      --default-font: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      --heading-font: "Montserrat", sans-serif;
+      --nav-font: "Montserrat", sans-serif;
+      --background-color: #0F1D26;
+      --default-color: #ffffff;
+      --heading-color: #D9910B;
+      --accent-color: #f0600c;
+      --surface-color: #262626;
+      --contrast-color: #ffffff;
+    }
+    
+    body {
+      background-color: var(--background-color);
+      color: var(--default-color);
+      font-family: var(--default-font);
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--heading-font);
+      color: var(--heading-color);
+    }
+
+    /*
+      Custom styling for the portfolio gallery, consistent with the original design.
+      The website-card and gallery-item styles have been carefully adjusted to meet your requests.
+    */
+    
+    .portfolio-section .section-title {
+      padding-top: 80px;
+      padding-bottom: 20px;
+      text-align: center;
+    }
+
+    .portfolio-section .section-title h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--heading-color);
+    }
+
+    .portfolio-section .section-title p {
+      font-size: 16px;
+      color: var(--default-color);
+      opacity: 0.8;
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px) scale(1.05); /* Enlarge on hover for graphic design items */
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 1/1;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: var(--contrast-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .overlay h4 {
+      font-size: 20px;
+      margin-bottom: 5px;
+      color: var(--heading-color);
+    }
+
+    .overlay p {
+      font-size: 14px;
+      color: var(--default-color);
+      margin: 0;
+    }
+
+    /* Website Preview Styling */
+    .website-card {
+      background-color: var(--surface-color);
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .website-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .website-card iframe {
+      width: 100%;
+      height: 450px; /* Increased height for a wider preview */
+      border: 1px solid var(--accent-color);
+      border-bottom: none;
+      pointer-events: none; /* Prevents interaction with the iframe */
+    }
+
+    .website-card .card-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .website-card h4 {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .website-card .visit-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: var(--accent-color);
+      color: var(--contrast-color);
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .website-card .visit-btn:hover {
+      background-color: color-mix(in srgb, var(--accent-color), transparent 25%);
+    }
+
+    /* Filtering Buttons Styling */
+    .portfolio-filters {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .portfolio-filters ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+      border-radius: 50px;
+      border: 2px solid var(--accent-color);
+    }
+
+    .portfolio-filters li {
+      display: inline-block;
+      padding: 10px 25px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--default-color);
+      cursor: pointer;
+      border-radius: 50px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .portfolio-filters li:hover,
+    .portfolio-filters li.filter-active {
+      background-color: var(--accent-color);
+      color: var(--contrast-color);
+    }
+    
+    /* Lightbox Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    
+    .modal .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .modal .prev, .modal .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background: rgba(0,0,0,0.5);
+    }
+    
+    .modal .prev {
+        left: 20px;
+    }
+    
+    .modal .next {
+        right: 20px;
+    }
+
+    .modal .prev:hover, .modal .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <h1 class="sitename">H.E_INGWEE</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero" class="">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#resume">Resume</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li class="dropdown"><a href="#"><span>Portfolio</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="portfolio-details.html">Graphic Design</a></li>
+              <li class="dropdown"><a href="#"><span>Website</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="https://ingweeplex.vercel.app/" target="_blank">Birika Springs</a></li>
+                  <li><a href="https://ingweeplex.vercel.app/" target="_blank">Jeslights</a></li>
+                  <li><a href="https://ingweeplex.vercel.app/" target="_blank">VOCI</a></li>
+                  <li><a href="https://ingweeplex.vercel.app/" target="_blank">Nurulife</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Portfolio</h2>
+          <p>A showcase of my recent works</p>
+        </div>
+
+        <div class="portfolio-filters" data-aos="fade-up">
+          <ul>
+            <li data-filter="all" class="filter-active">All</li>
+            <li data-filter="graphic-design">Graphic Design</li>
+            <li data-filter="brand-strategy">Brand Strategy</li>
+            <li data-filter="websites">Websites</li>
+          </ul>
+        </div>
+        
+        <div class="gallery-grid" id="portfolio-container">
+          <!-- Graphic Design Items -->
+          <div class="gallery-item portfolio-item" data-category="graphic-design" data-aos="fade-up">
+            <img src="assets/img/portfolio/design/ASFEC.png" alt="ASFEC Poster">
+            <div class="overlay">
+              <h4>ASFEC Poster</h4>
+              <p>Project: A Smile For Every Change</p>
+            </div>
+          </div>
+          <div class="gallery-item portfolio-item" data-category="graphic-design" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/img/portfolio/design/Ingwee.png" alt="Ingweplex Design">
+            <div class="overlay">
+              <h4>Ingweplex Design</h4>
+              <p>Project: Brand Poster</p>
+            </div>
+          </div>
+          <div class="gallery-item portfolio-item" data-category="graphic-design" data-aos="fade-up" data-aos-delay="200">
+            <img src="assets/img/portfolio/design/VOCI.png" alt="VOCI Poster">
+            <div class="overlay">
+              <h4>VOCI Poster</h4>
+              <p>Project: The Voice of Change Initiative</p>
+            </div>
+          </div>
+          <div class="gallery-item portfolio-item" data-category="graphic-design" data-aos="fade-up">
+            <img src="assets/img/portfolio/design/ASFEC_logo_mockup.png" alt="ASFEC Logo Mockup">
+            <div class="overlay">
+              <h4>ASFEC Logo</h4>
+              <p>Project: A Smile For Every Change</p>
+            </div>
+          </div>
+          <div class="gallery-item portfolio-item" data-category="graphic-design" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/img/portfolio/design/Ingweplex_logo.png" alt="Ingweplex Logo">
+            <div class="overlay">
+              <h4>Ingweplex Logo</h4>
+              <p>Project: Ingweplex Designs</p>
+            </div>
+          </div>
+          <div class="gallery-item portfolio-item" data-category="graphic-design" data-aos="fade-up" data-aos-delay="200">
+            <img src="assets/img/portfolio/design/VOCI_logo.png" alt="VOCI Logo">
+            <div class="overlay">
+              <h4>VOCI Logo</h4>
+              <p>Project: The Voice of Change Initiative</p>
+            </div>
+          </div>
+          <div class="gallery-item portfolio-item" data-category="graphic-design" data-aos="fade-up">
+            <img src="assets/img/portfolio/design/business_card_mockup.png" alt="Business Card Mockup">
+            <div class="overlay">
+              <h4>Business Card</h4>
+              <p>Project: Brand Identity</p>
+            </div>
+          </div>
+          <div class="gallery-item portfolio-item" data-category="graphic-design" data-aos="fade-up" data-aos-delay="100">
+            <a href="assets/downloads/ASFEC%20BRAND%20GUIDELINES.pdf" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/portfolio/design/brand_guidelines_cover.png" alt="Brand Guidelines Document Cover">
+              <div class="overlay">
+                <h4>Brand Guidelines</h4>
+                <p>Project: ASFEC Brand</p>
+              </div>
+            </a>
+          </div>
+          
+          <!-- Brand Strategy Items -->
+          <div class="gallery-item portfolio-item" data-category="brand-strategy" data-aos="fade-up">
+            <img src="assets/img/portfolio/strategy/brand_strategy_1.png" alt="ASFEC Brand Strategy">
+            <div class="overlay">
+              <h4>ASFEC Brand Strategy</h4>
+              <p>A Smile For Every Change</p>
+            </div>
+          </div>
+          <div class="gallery-item portfolio-item" data-category="brand-strategy" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/img/portfolio/strategy/brand_strategy_2.png" alt="Grub n Snuck Brand Strategy">
+            <div class="overlay">
+              <h4>Grub n Snuck Strategy</h4>
+              <p>Brand and Marketing</p>
+            </div>
+          </div>
+          <div class="gallery-item portfolio-item" data-category="brand-strategy" data-aos="fade-up" data-aos-delay="200">
+            <img src="assets/img/portfolio/strategy/brand_strategy_3.png" alt="Ingweplex Brand Strategy">
+            <div class="overlay">
+              <h4>Ingweplex Strategy</h4>
+              <p>Branding and Consultancy</p>
+            </div>
+          </div>
+          
+          <!-- Website Items -->
+          <div class="website-card portfolio-item" data-category="websites" data-aos="fade-up">
+            <iframe src="https://ingweeplex.vercel.app/" title="VOCI Website Preview"></iframe>
+            <div class="card-content">
+              <h4>VOCI Website</h4>
+              <a href="https://ingweeplex.vercel.app/" target="_blank" class="visit-btn">Visit Site</a>
+            </div>
+          </div>
+          <div class="website-card portfolio-item" data-category="websites" data-aos="fade-up" data-aos-delay="100">
+            <iframe src="https://ingweeplex.vercel.app/" title="Nurulife Website Preview"></iframe>
+            <div class="card-content">
+              <h4>Nurulife Website</h4>
+              <a href="https://ingweeplex.vercel.app/" target="_blank" class="visit-btn">Visit Site</a>
+            </div>
+          </div>
+          <div class="website-card portfolio-item" data-category="websites" data-aos="fade-up" data-aos-delay="200">
+            <iframe src="https://ingweeplex.vercel.app/" title="Jeslights Website Preview"></iframe>
+            <div class="card-content">
+              <h4>Jeslights Website</h4>
+              <a href="https://ingweeplex.vercel.app/" target="_blank" class="visit-btn">Visit Site</a>
+            </div>
+          </div>
+          <div class="website-card portfolio-item" data-category="websites" data-aos="fade-up">
+            <iframe src="https://ingweeplex.vercel.app/" title="Birika Springs Website Preview"></iframe>
+            <div class="card-content">
+              <h4>Birika Springs Website</h4>
+              <a href="https://ingweeplex.vercel.app/" target="_blank" class="visit-btn">Visit Site</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- The Modal/Lightbox -->
+    <div id="image-modal" class="modal">
+      <span class="close">&times;</span>
+      <div class="modal-content">
+        <img id="modal-image" src="" alt="">
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+      </div>
+    </div>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer position-relative">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">H.E_INGWEE</strong> <span>2025 All Rights Reserved</span></p>
+      </div>
+      <div class="credits">
+    
+Designed by <a href="https://ingweplex.vercel.app/" target="_blank">Ingweplex</a>
+      </div>
+    </div>
+
+  </footer>
+  <!-- End Footer -->
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <script>
+    // Self-contained JavaScript for the gallery and modal functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize Isotope for filtering
+      let portfolioContainer = document.querySelector('#portfolio-container');
+      
+      // Check if the container exists before initializing Isotope
+      if (portfolioContainer) {
+        let portfolioIsotope = new Isotope(portfolioContainer, {
+          itemSelector: '.portfolio-item',
+          layoutMode: 'fitRows'
+        });
+
+        let portfolioFilters = document.querySelectorAll('.portfolio-filters li');
+        portfolioFilters.forEach(filter => {
+          filter.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelectorAll('.portfolio-filters li').forEach(li => {
+              li.classList.remove('filter-active');
+            });
+            this.classList.add('filter-active');
+            
+            let filterValue = this.getAttribute('data-filter');
+            
+            if (filterValue === 'all') {
+              portfolioIsotope.arrange({ filter: '*' });
+            } else {
+              portfolioIsotope.arrange({ filter: `[data-category="${filterValue}"]` });
+            }
+          });
+        });
+      }
+
+      // Gallery Modal Logic
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      const modal = document.getElementById('image-modal');
+      const modalImage = document.getElementById('modal-image');
+      const closeBtn = document.querySelector('.modal .close');
+      const prevBtn = document.querySelector('.modal .prev');
+      const nextBtn = document.querySelector('.modal .next');
+      let currentGalleryItems = [];
+      let currentIndex = 0;
+
+      // Event listener for opening the modal
+      galleryItems.forEach(item => {
+        item.addEventListener('click', (event) => {
+          // Check if the clicked element is an anchor tag, if so, we don't open the modal
+          if (event.target.closest('a')) {
+            return;
+          }
+          const category = item.getAttribute('data-category');
+          // Find all items in the same category to create a gallery
+          currentGalleryItems = document.querySelectorAll(`.gallery-item[data-category="${category}"]`);
+          currentIndex = Array.from(currentGalleryItems).indexOf(item);
+          
+          const imgElement = item.querySelector('img');
+          if (imgElement) {
+            modalImage.src = imgElement.src;
+            modal.classList.add('open');
+          }
+        });
+      });
+      
+      // Event listener for closing the modal
+      if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+          modal.classList.remove('open');
+        });
+      }
+
+      // Event listener for navigating to the next image
+      if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          currentIndex = (currentIndex + 1) % currentGalleryItems.length;
+          modalImage.src = currentGalleryItems[currentIndex].querySelector('img').src;
+        });
+      }
+
+      // Event listener for navigating to the previous image
+      if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          currentIndex = (currentIndex - 1 + currentGalleryItems.length) % currentGalleryItems.length;
+          modalImage.src = currentGalleryItems[currentIndex].querySelector('img').src;
+        });
+      }
+      
+      // Close modal on outside click
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            modal.classList.remove('open');
+          }
+        });
+      }
+
+      // Navigation Toggle Script
+      const headerToggleBtn = document.querySelector('.header-toggle');
+      if (headerToggleBtn) {
+        function headerToggle() {
+          document.querySelector('#header').classList.toggle('header-show');
+          headerToggleBtn.classList.toggle('bi-list');
+          headerToggleBtn.classList.toggle('bi-x');
+        }
+        headerToggleBtn.addEventListener('click', headerToggle);
+      }
+      
+      // Hide mobile nav on hash links
+      document.querySelectorAll('#navmenu a').forEach(navmenu => {
+        navmenu.addEventListener('click', () => {
+          if (document.querySelector('.header-show')) {
+            headerToggle();
+          }
+        });
+      });
+
+      // Toggle mobile nav dropdowns
+      document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
+        navmenu.addEventListener('click', function(e) {
+          e.preventDefault();
+          this.parentNode.classList.toggle('active');
+          this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+          e.stopImmediatePropagation();
+        });
+      });
+
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      });
+    });
+  </script>
+</body>
+
+</html>
