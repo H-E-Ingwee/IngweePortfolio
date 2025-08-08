@@ -187,7 +187,7 @@
 
     .website-card iframe {
       width: 100%;
-      height: 350px;
+      height: 450px;
       border: 1px solid var(--accent-color);
       border-bottom: none;
       pointer-events: none; /* Prevents interaction with the iframe */
@@ -229,40 +229,21 @@
     <div class="header-container d-flex flex-column align-items-start">
             <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active"><i class="bi bi-house-door navicon"></i>Home</a></li>
-          <li><a href="#about"><i class="bi bi-person-circle navicon"></i> About</a></li>
-          <li><a href="#resume"><i class="bi bi-file-earmark-person navicon"></i> Resume</a></li>
-          <li><a href="#portfolio"><i class="bi bi-grid-fill navicon"></i> Portfolio</a></li>
-          <li><a href="#services"><i class="bi bi-briefcase navicon"></i> Services</a></li>
-          <!-- Dropdown menu commented out as per original structure, can be uncommented if needed today-->
-          <!--
-          <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          -->
-          <li><a href="#contact"><i class="bi bi-chat-dots navicon"></i> Contact</a></li>
+          <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
+          <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+          <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+          <li><a href="index.html#portfolio" class="active"><i class="bi bi-images navicon"></i> Portfolio</a></li>
+          <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
+          <!-- Dropdown menu commented out as per index.html -->
+          <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
         </ul>
       </nav>
 
       <div class="social-links text-center">
         <!-- Placeholder social links - update with Brian's actual links -->
-        <a href="https://x.com/H_E_Ingwee" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://x.com/H_E_Ingwee" target="_blank" class="twitter"> <i class="bi bi-twitter-x"></i></a>
         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/h.e_ingwee/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.instagram.com/h.e_ingwee/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
         <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
       </div>
 
@@ -282,7 +263,14 @@
           <h2>Portfolio</h2>
           <p>A showcase of my recent works</p>
         </div>
-
+<div class="portfolio-filters" data-aos="fade-up">
+          <ul>
+            <li data-filter="all" class="filter-active">All</li>
+            <li data-filter="graphic-design">Graphic Design</li>
+            <li data-filter="brand-strategy">Brand Strategy</li>
+            <li data-filter="websites">Websites</li>
+          </ul>
+        </div>
         <!-- Graphic Design Section -->
         <h1 style="text-align: center; margin: 40px 0; color: var(--heading-color);">Graphic Design</h1>
         <div class="gallery-grid" id="graphic-design-gallery">
@@ -336,7 +324,33 @@
               <p>Project: Sample Flyer 7</p>
             </div>
           </div>
-
+          <div class="gallery-item" data-category="flyers">
+            <img src="assets/img/portfolio/graphic-design/flyers/flyer8.png" alt="Flyer 8">
+            <div class="overlay">
+              <h4>Flyer Design</h4>
+              <p>Project: Sample Flyer 8</p>
+            </div>
+          </div>
+<div class="gallery-item" data-category="flyers">
+            <img src="assets/img/portfolio/graphic-design/flyers/flyer9.jpg" alt="Flyer 7">
+            <div class="overlay">
+              <h4>Flyer Design</h4>
+              <p>Project: Sample Flyer 9</p>
+            </div>
+          </div><div class="gallery-item" data-category="flyers">
+            <img src="assets/img/portfolio/graphic-design/flyers/flyer10.jpg" alt="Flyer 7">
+            <div class="overlay">
+              <h4>Flyer Design</h4>
+              <p>Project: Sample Flyer 10</p>
+            </div>
+          </div><div class="gallery-item" data-category="flyers">
+            <img src="assets/img/portfolio/graphic-design/flyers/flyer11.png" alt="Flyer 7">
+            <div class="overlay">
+              <h4>Flyer Design</h4>
+              <p>Project: Sample Flyer 11</p>
+            </div>
+          </div>
+          
           <!-- Posters -->
           <div class="gallery-item" data-category="posters">
             <img src="assets/img/portfolio/graphic-design/posters/poster1.png" alt="Poster 1">
@@ -380,7 +394,55 @@
               <p>Project: Sample Poster 6</p>
             </div>
           </div>
-
+           <div class="gallery-item" data-category="posters">
+            <img src="assets/img/portfolio/graphic-design/posters/poster7.png" alt="Poster 7">
+            <div class="overlay">
+              <h4>Poster Design</h4>
+              <p>Project: Sample Poster 7</p>
+            </div>
+          </div>
+ <div class="gallery-item" data-category="posters">
+            <img src="assets/img/portfolio/graphic-design/posters/poster8.png" alt="Poster 8">
+            <div class="overlay">
+              <h4>Poster Design</h4>
+              <p>Project: Sample Poster 8</p>
+            </div>
+          </div>
+ <div class="gallery-item" data-category="posters">
+            <img src="assets/img/portfolio/graphic-design/posters/poster9.png" alt="Poster 9">
+            <div class="overlay">
+              <h4>Poster Design</h4>
+              <p>Project: Sample Poster 9</p>
+            </div>
+          </div>
+ <div class="gallery-item" data-category="posters">
+            <img src="assets/img/portfolio/graphic-design/posters/poster10.png" alt="Poster 10">
+            <div class="overlay">
+              <h4>Poster Design</h4>
+              <p>Project: Sample Poster 10</p>
+            </div>
+          </div>
+ <div class="gallery-item" data-category="posters">
+            <img src="assets/img/portfolio/graphic-design/posters/poster11.png" alt="Poster 11">
+            <div class="overlay">
+              <h4>Poster Design</h4>
+              <p>Project: Sample Poster 11</p>
+            </div>
+          </div>
+ <div class="gallery-item" data-category="posters">
+            <img src="assets/img/portfolio/graphic-design/posters/VOCI LEADERSHIP.png" alt="Poster 12">
+            <div class="overlay">
+              <h4>Poster Design</h4>
+              <p>Project: Sample Poster 12</p>
+            </div>
+          </div>
+ <div class="gallery-item" data-category="posters">
+            <img src="assets/img/portfolio/graphic-design/posters/VOCI purpose.png" alt="Poster 13">
+            <div class="overlay">
+              <h4>Poster Design</h4>
+              <p>Project: Sample Poster 13</p>
+            </div>
+          </div>
           <!-- Logos -->
           <div class="gallery-item" data-category="logos">
             <img src="assets/img/portfolio/graphic-design/logos/logo1.png" alt="Logo 1">
@@ -432,29 +494,85 @@
             </div>
           </div>
         </div>
+         <div class="gallery-item" data-category="logos">
+            <img src="assets/img/portfolio/graphic-design/logos/logo8.png" alt="Logo 8">
+            <div class="overlay">
+              <h4>Logo Design</h4>
+              <p>Project: Sample Logo 8</p>
+            </div>
+          </div>
+        </div>
+         <div class="gallery-item" data-category="logos">
+            <img src="assets/img/portfolio/graphic-design/logos/logo9.png" alt="Logo 9">
+            <div class="overlay">
+              <h4>Logo Design</h4>
+              <p>Project: Sample Logo 9</p>
+            </div>
+          </div>
+        </div>
+         <div class="gallery-item" data-category="logos">
+            <img src="assets/img/portfolio/graphic-design/logos/logo10.png" alt="Logo 10">
+            <div class="overlay">
+              <h4>Logo Design</h4>
+              <p>Project: Sample Logo 10</p>
+            </div>
+          </div>
+        </div>
+         <div class="gallery-item" data-category="logos">
+            <img src="assets/img/portfolio/graphic-design/logos/logo11.png" alt="Logo 11">
+            <div class="overlay">
+              <h4>Logo Design</h4>
+              <p>Project: Sample Logo 11</p>
+            </div>
+          </div>
+        </div>
+         <div class="gallery-item" data-category="logos">
+            <img src="assets/img/portfolio/graphic-design/logos/logo12.png" alt="Logo 12">
+            <div class="overlay">
+              <h4>Logo Design</h4>
+              <p>Project: Sample Logo 12</p>
+            </div>
+          </div>
+        </div>
+         <div class="gallery-item" data-category="logos">
+            <img src="assets/img/portfolio/graphic-design/logos/VOCI OFFICIAL LOGO.png" alt="Logo 13">
+            <div class="overlay">
+              <h4>Logo Design</h4>
+              <p>Project: Sample Logo 13</p>
+            </div>
+          </div>
+        </div>
 
         <!-- Brand Guidelines Section -->
         <h3 style="text-align: center; margin: 40px 0; color: var(--heading-color);">Brand Guidelines</h3>
         <div class="gallery-grid" id="brand-guidelines-gallery">
           <div class="gallery-item" data-category="guidelines">
-            <img src="assets/img/portfolio/graphic-design/logos/logo7.png" alt="Brand Guidelines Document 1">
+            <img src="assets/img/portfolio/graphic-design/brand-guides/NURU BRAND.JPG" alt="Brand Guidelines 1">
             <div class="overlay">
               <h4>Brand Guidelines</h4>
               <p>Project: Sample Document 1</p>
             </div>
           </div>
           <div class="gallery-item" data-category="guidelines">
-            <img src="assets/img/portfolio/graphic-design/logos/logo.pn" alt="Brand Guidelines Document 2">
+            <img src="assets/img/portfolio/graphic-design/brand-guides/VOCI BRAND.JPG" alt="Brand Guidelines Document 2">
             <div class="overlay">
               <h4>Brand Guidelines</h4>
               <p>Project: Sample Document 2</p>
             </div>
           </div>
           <div class="gallery-item" data-category="guidelines">
-            <img src="assets/img/portfolio/graphic-design/logos/logo11.png" alt="Brand Guidelines Document 3">
+            <img src="assets/img/portfolio/graphic-design/brand-guides/MUTCU BRAND.JPG" alt="Brand Guidelines Document 3">
             <div class="overlay">
               <h4>Brand Guidelines</h4>
               <p>Project: Sample Document 3</p>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="guidelines">
+            <img src="assets/img/portfolio/graphic-design/brand-guides/ZAMARI BRAND.JPG" alt="Brand Guidelines Document 4">
+            <div class="overlay">
+              <h4>Brand Guidelines</h4>
+              <p>Project: Sample Document 4</p>
             </div>
           </div>
         </div>
@@ -484,7 +602,7 @@
             </div>
           </div>
           <div class="gallery-item" data-category="strategy">
-            <img src="assets/img/portfolio/graphic-design/logos/logo2.png" alt="VOCI Brand Strategy">
+            <img src="assets/img/portfolio/graphic-design/logos/VOCI OFFICIAL LOGO.png" alt="VOCI Brand Strategy">
             <div class="overlay">
               <h4>VOCI Brand Strategy</h4>
               <p>Voice of Change Initiative</p>
